@@ -1,14 +1,28 @@
 const express = require('express');
 const app = express();
-
 app.use(express.json());
 
 const products = [
-    {id: "1", productName: "Milk"},
-    {id: "2", productName: "Bread"},
-    {id: "3", productName:"Cheese"},
-    {id: "4", productName: "Water"},
-    {id: "5", productName: "Oil"}
+    {
+        id: "1", 
+        productName: "Milk"
+    },
+    {
+        id: "2", 
+        productName: "Bread"
+    },
+    {
+        id: "3", 
+        productName:"Cheese"
+    },
+    {
+        id: "4", 
+        productName: "Water"
+    },
+    {
+        id: "5", 
+        productName: "Oil"
+    }
 ];
 
 app.get("/products", (req, res) => {
