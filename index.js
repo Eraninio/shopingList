@@ -46,5 +46,4 @@ app.delete("/products/:Id", (req, res) =>{
     });
 });
 
-
 app.listen(3000);
