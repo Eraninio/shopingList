@@ -32,7 +32,7 @@ app.get("/products", (req, res) => {
 app.get("/products/:Id", (req, res) =>
     products.forEach((item => {
         if (item.id === req.params.Id){
-            res.send(item.productName);
+            res.send(item);
         }
     })
 ));
