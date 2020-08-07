@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Chilanka', cursive; */
+    font-family: "Montserrat", sans-serif;
+}
+
+.itemContainer {
+    display: flex;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: ". control control ." ". products products ." ". products products .";
+}
+
+#control {
+    grid-area: control;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 0.8fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "h1 h1 h1" "controltypes controltypes controltypes";
+}
+
+#products {
+    display: flex;
+    flex-direction: column;
+    grid-area: products;
+}
+
+#controltypes {
+    grid-area: controltypes;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1 {
+    grid-area: h1;
+}
+
+label {
+    grid-area: label;
+}
+
+#textInput {
+    grid-area: textInput;
+    flex: 2;
+}
+
+#addButton {
+    grid-area: addButton;
+}

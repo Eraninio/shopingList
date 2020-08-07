@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+    </head>
+    <body>
+        <section id="control">
+            <h1>My shopping List</h1>
+            <div id="controltypes">
+                <label for="item">Enter a new item:</label>
+                <input
+                    type="text"
+                    id="textInput"
+                    placeholder="Type item here"
+                />
+                <button id="addButton">Add item</button>
+            </div>
+        </section>
+        <section id="products">
+            <section id="unchecked"></section>
+            <section id="checked"></section>
+        </section>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</html>
