@@ -16,7 +16,6 @@ function addItem(obj) {
     const editButton = document.createElement("button");
 
     itemContainer.className = "itemContainer";
-    itemContainer.id = obj.id;
     itemText.className = "itemText";
     deleteButton.className = "deleteButton";
     checkBox.className = "checkBox";
@@ -40,13 +39,13 @@ function addItem(obj) {
         checkBox.checked = false;
     }
 
-    itemContainer.append(itemText, checkBox, deleteButton, editButton);
+    itemContainer.append(checkBox, itemText, editButton, deleteButton);
     if (obj.check === "yes") {
         sectionChecked.appendChild(itemContainer);
     } else {
         sectionUnchecked.appendChild(itemContainer);
     }
-
+    //פעולה שמוחקת מוצר
     deleteButton.onclick = function () {
         axios.delete(`http://localhost:3000/products/${obj.id}`, obj);
         if (obj.check === "yes") {
@@ -55,10 +54,10 @@ function addItem(obj) {
             sectionUnchecked.removeChild(itemContainer);
         }
     };
-
+    //פעולה שעורכת שם מוצר על ידי לחיצה על אדיט
     editButton.onclick = function () {
         swal({
-            title: `Change product ${obj.productName} to:`,
+            title: `Change product "${obj.productName}" to:`,
             content: "input",
             buttons: {
                 cancel: true,
@@ -66,7 +65,6 @@ function addItem(obj) {
             },
         }).then((val) => {
             if (val) {
-                debugger;
                 let newObj = obj;
                 newObj.productName = val;
                 axios.put(`http://localhost:3000/products/${obj.id}`, newObj);
@@ -79,6 +77,46 @@ function addItem(obj) {
                 });
             }
         });
+    };
+    //פעולה שעורכת שם מוצר על ידי לחיצה על השם
+    itemText.onclick = function () {
+        swal({
+            title: `Change product "${obj.productName}" to:`,
+            content: "input",
+            buttons: {
+                cancel: true,
+                confirm: "Submit",
+            },
+        }).then((val) => {
+            if (val) {
+                let newObj = obj;
+                newObj.productName = val;
+                axios.put(`http://localhost:3000/products/${obj.id}`, newObj);
+                swal({
+                    title: "Thanks!",
+                    text: "You typed: " + val,
+                    icon: "success",
+                }).then((val) => {
+                    location.reload();
+                });
+            }
+        });
+    };
+
+    checkBox.onclick = async function () {
+        await axios.delete(`http://localhost:3000/products/${obj.id}`, obj);
+        let newObj = obj;
+        if (checkBox.checked) {
+            newObj.check = "yes";
+            sectionUnchecked.removeChild(itemContainer);
+        } else {
+            newObj.check = "no";
+            sectionChecked.removeChild(itemContainer);
+        }
+        newObj.id = counter.toString();
+        await axios.post("http://localhost:3000/products", newObj);
+        counter++;
+        addItem(newObj);
     };
 }
 

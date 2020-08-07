@@ -6,12 +6,18 @@
     /* font-family: 'Chilanka', cursive; */
     font-family: "Montserrat", sans-serif;
 }
+*:focus {
+    outline: none;
+}
 
 .itemContainer {
     display: flex;
 }
-
 body {
+    background-image: url("https://i.pinimg.com/originals/e1/11/5a/e1115afea56dcaf0c273a4f3d9fc7f3a.jpg");
+    background-size: cover;
+}
+#body {
     display: grid;
     height: 100vh;
     width: 100vw;
@@ -37,14 +43,20 @@ body {
 }
 
 #controltypes {
+    background-color: rgba(146, 146, 146, 0.733);
     grid-area: controltypes;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 0.2em;
 }
 
 h1 {
+    text-align: center;
     grid-area: h1;
+    background-color: rgba(255, 255, 255, 0.53);
+    margin-top: 0.2em;
+    padding-top: 0.2em;
 }
 
 label {
@@ -54,8 +66,120 @@ label {
 #textInput {
     grid-area: textInput;
     flex: 2;
+    margin: 0.5em;
+    padding: 0.5em;
+    background-color: rgba(207, 207, 207, 0.733);
+    border-radius: 1em;
+    border: transparent;
+}
+#textInput::placeholder {
+    color: white;
+    align-items: center;
+}
+
+#textInput:focus {
+    background-color: rgba(255, 255, 255, 0.747);
+    color: black;
 }
 
 #addButton {
     grid-area: addButton;
+    margin: 0.5em;
+    border-radius: 0.5em;
+    border: transparent;
+    padding: 0.3em;
+    background-color: rgba(125, 255, 153, 0.986);
+    cursor: pointer;
+}
+
+#unchecked > .itemContainer {
+    background-color: rgba(153, 249, 153, 0.87);
+    box-shadow: 0.4em 0.4em 0.5em rgba(153, 249, 153, 0.5);
+}
+#unchecked :hover {
+    transform: scale(1.009);
+    transition: all ease 200ms;
+    background-color: rgba(255, 221, 128, 0.78);
+    box-shadow: 0.4em 0.4em 0.5em rgba(255, 221, 128, 0.5);
+}
+#checked > .itemContainer {
+    background-color: rgba(175, 175, 175, 0.78);
+    text-decoration: line-through;
+    box-shadow: 0.4em 0.4em 0.5em rgba(175, 175, 175, 0.5);
+}
+#checked :hover {
+    transform: scale(1.009);
+    transition: all ease 200ms;
+    background-color: rgba(175, 175, 175, 1);
+}
+
+#checked :hover > .deleteButton {
+    visibility: visible;
+    color: red;
+}
+
+#unchecked :hover > .deleteButton {
+    visibility: visible;
+    color: red;
+}
+#unchecked :hover > .editButton {
+    visibility: visible;
+}
+.itemContainer {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    margin-top: 0.2em;
+}
+
+.checkBox {
+    margin-left: 4em;
+    margin-right: 1em;
+}
+
+.itemText:hover {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.editButton {
+    margin-left: auto;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 0.2em;
+    padding: 0.2em 0.4em;
+    visibility: hidden;
+}
+
+.deleteButton {
+    margin-right: 4em;
+    margin-left: 1em;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 0.2em;
+    padding: 0.2em 0.4em;
+    visibility: hidden;
+}
+
+.deleteButton:hover {
+    cursor: pointer;
+    color: red;
+    background-color: white !important;
+    transition: all ease 50ms;
+}
+i {
+    background-color: transparent !important;
+}
+.editButton:hover {
+    cursor: pointer;
+    color: black;
+    background-color: white !important;
+    transition: all ease 50ms;
+}
+.checkBox:hover {
+    cursor: pointer;
+}
+
+.itemText:hover {
+    background-color: transparent;
 }
