@@ -136,7 +136,9 @@ label {
     margin-left: 4em;
     margin-right: 1em;
 }
-
+.itemText {
+    word-break: break-all; /*גורם לכך שאם מילה ארוכה זה שובר שורה*/
+}
 .itemText:hover {
     background-color: transparent !important;
     box-shadow: none !important;
